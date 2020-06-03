@@ -1,15 +1,15 @@
-const express = require('express');
+const express = require("express");
 
-const playstore = require('./playstore.js');
+const playstore = require("./playstore.js");
 
 const app = express();
 
-app.get('/apps', (req, res) => {
-  const { app = '', sort, genre = '' } = req.query;
+app.get("/apps", (req, res) => {
+  const { app = "", sort, genre = "" } = req.query;
 
   if (sort) {
-    if (!['App', 'rating'].includes(sort)) {
-      return res.status(400).send('Sort must be one of App or rating');
+    if (!["App", "rating"].includes(sort)) {
+      return res.status(400).send("Sort must be one of App or rating");
     }
   }
 
@@ -36,5 +36,7 @@ app.get('/apps', (req, res) => {
 });
 
 app.listen(8000, () => {
-  console.log('Server started on PORT 8000');
+  console.log("Server started on PORT 8000");
 });
+
+module.exports = app;
